@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+
+<main class="container">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2 justify-content-center d-flex text-center" style="height: 50vh;">
+        <div class="col align-self-center ">
+          
+            <div class="col">
+                <div class="card h-100 bg-dark text-white">
+                  <div class="card-body">
+                    <h3 class="card-title">Download MP3</h3>
+                    <p class="card-text">
+                        <form method="POST" action="{{url_for('download_file')}}" enctype="multipart/form-data">
+                            <input class="form-control my-4" type="text" placeholder="Link do Video" name="link">
+                            <button type="submit" class="btn btn-primary  w-50 p-2 ">Baixar</button>
+                        </form>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            
+        </div>
+    </div>
+
+</main>
+
+
+{% endblock content%}
