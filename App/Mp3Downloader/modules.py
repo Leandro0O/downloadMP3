@@ -25,4 +25,11 @@ class Download():
                 new = editor.AudioFileClip(mp4)
                 new.write_audiofile(mp3)
                 os.remove(mp4)
-        return mp3
+        return str(mp3)
+
+    def downloadmp4(self):
+
+       ypath = YouTube(self.link)
+       ysource = ypath.streams.filter(progressive=True, file_extension= 'mp4').order_by('resolution').desc().first().download(path)
+
+       return True      

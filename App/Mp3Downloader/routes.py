@@ -9,8 +9,8 @@ def Index():
 
     return render_template('index.html')
 
-@app.route('/download',methods=['POST','GET'])
-def download_file():
+@app.route('/downloadmp3',methods=['POST','GET'])
+def download_mp3():
 
     if request.method == 'POST':
         link = request.form.get('link')
@@ -18,8 +18,21 @@ def download_file():
         mp3 = download.downloadmp3()
         if mp3 == True:
             convert = download.convertmp3()
-            flash('Download Concluido!', 'success')
+            flash('Download do mp3 concluido!', 'success')
             return redirect(url_for('Index'))
         else:
             flash('Erro','danger')
+    return render_template('index.html')
+
+@app.route('/downloadmp4',methods=['POST','GET'])
+def download_mp4():
+
+    if request.method == 'POST':
+        link = request.form.get('link')
+        download = Download(link)
+        mp3 = download.downloadmp4()
+        flash('Download do vídeo concluido!', 'success')
+        return redirect(url_for('Index'))        
+    else:
+        flash('Erro','danger')
     return render_template('index.html')
