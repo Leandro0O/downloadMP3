@@ -30,7 +30,7 @@ def download_mp4():
     if request.method == 'POST':
         link = request.form.get('link')
         download = Download(link)
-        mp3 = download.downloadmp4()
+        mp4 = download.downloadmp4()
         flash('Download do vídeo concluido!', 'success')
         return redirect(url_for('Index'))        
     else:

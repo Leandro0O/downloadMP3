@@ -25,7 +25,7 @@ class Download():
                 new = editor.AudioFileClip(mp4)
                 new.write_audiofile(mp3)
                 os.remove(mp4)
-        return str(mp3)
+        return True
 
     def downloadmp4(self):
 
