@@ -3,7 +3,8 @@ import os
 
 
 dirbase = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(dirbase,'C:/Users/Leandro/Downloads')
+musicpath = os.path.join(dirbase,'C:/Users/Leandro/Music')
+videocpath = os.path.join(dirbase,'C:/Users/Leandro/Videos')
 
 app = Flask(__name__)
 
