@@ -13,7 +13,6 @@ class Download():
 
         ypath = YouTube(self.link)
         ysource = ypath.streams.filter(only_audio=True).first().download(musicpath)
-
         return True      
 
     def convertmp3(self):

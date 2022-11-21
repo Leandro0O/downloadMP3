@@ -18,7 +18,7 @@ def download_mp3():
         mp3 = download.downloadmp3()
         if mp3 == True:
             convert = download.convertmp3()
-            flash('Download do mp3 concluido!', 'success')
+            flash('Download concluido!', 'success')
             return redirect(url_for('Index'))
         else:
             flash('Erro','danger')
@@ -26,7 +26,6 @@ def download_mp3():
 
 @app.route('/downloadmp4',methods=['POST','GET'])
 def download_mp4():
-
     if request.method == 'POST':
         link = request.form.get('link')
         download = Download(link)

@@ -3,8 +3,10 @@ import os
 
 
 dirbase = os.path.abspath(os.path.dirname(__file__))
-musicpath = os.path.join(dirbase,'C:/Users/Leandro/Music')
-videocpath = os.path.join(dirbase,'C:/Users/Leandro/Videos')
+musicpath = f"{os.getenv('USERPROFILE')}\\Music"
+
+videocpath = f"{os.getenv('USERPROFILE')}\\Videos"
+
 
 app = Flask(__name__)
 
