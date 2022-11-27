@@ -1,8 +1,13 @@
 from pytube import YouTube
-import moviepy.editor as editor
 import re
 import os 
-from App import musicpath, videocpath
+
+MUSICDIR = f"{os.getenv('USERPROFILE')}\\Music"
+VIDEODIR = f"{os.getenv('USERPROFILE')}\\Videos"
+
+
+
+
 
 class Download():
     
@@ -11,24 +16,13 @@ class Download():
         
     def downloadmp3(self):
 
-        ypath = YouTube(self.link)
-        ysource = ypath.streams.filter(only_audio=True).first().download(musicpath)
-        return True      
-
-    def convertmp3(self):
-
-        for file in os.listdir(musicpath):
-            if re.search('mp4',file):
-                mp4 = os.path.join(musicpath, file)
-                mp3 = os.path.join(musicpath, os.path.splitext(file)[0]+'.mp3')
-                new = editor.AudioFileClip(mp4)
-                new.write_audiofile(mp3)
-                os.remove(mp4)
-        return True
+        yt = YouTube(self.link)
+        yt.streams.filter(only_audio=True).first().download(MUSICDIR)
+        return yt.title
 
     def downloadmp4(self):
 
-       ypath = YouTube(self.link)
-       ysource = ypath.streams.filter(progressive=True, file_extension= 'mp4').order_by('resolution').desc().first().download(videocpath)
-
-       return True      
+        yt = YouTube(self.link)
+        yt.streams.filter(only_video=True).first().download(VIDEODIR)
+        return yt.title
+      
