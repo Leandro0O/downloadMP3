@@ -5,9 +5,7 @@ import os
 MUSICDIR = f"{os.getenv('USERPROFILE')}\\Music"
 VIDEODIR = f"{os.getenv('USERPROFILE')}\\Videos"
 
-
-
-
+    
 
 class Download():
     
